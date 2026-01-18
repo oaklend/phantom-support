@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="index,follow" />
+	<title>Phantom Support</title>
+	<meta name="description" content="Official support page for the Phantom app: contact support, FAQs, and troubleshooting." />
+
+	<style>
+        :root {
+            --bg: #0b0f1a;
+            --card: rgba(255, 255, 255, 0.06);
+            --border: rgba(255, 255, 255, 0.12);
+            --text: rgba(255, 255, 255, 0.92);
+            --muted: rgba(255, 255, 255, 0.72);
+            --muted2: rgba(255, 255, 255, 0.58);
+            --accent: #7dd3fc;
+            --accent2: #a78bfa;
+            --ok: #34d399;
+            --warn: #fbbf24;
+            --danger: #fb7185;
+            --shadow: 0 18px 50px rgba(0,0,0,.45);
+            --radius: 16px;
+            --maxw: 980px;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        }
+        * { box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            margin: 0;
+            font-family: var(--sans);
+            color: var(--text);
+            background:
+                    radial-gradient(900px 600px at 10% 10%, rgba(125, 211, 252, .18), transparent 60%),
+                    radial-gradient(700px 500px at 90% 20%, rgba(167, 139, 250, .18), transparent 55%),
+                    radial-gradient(900px 700px at 60% 90%, rgba(52, 211, 153, .10), transparent 55%),
+                    var(--bg);
+            line-height: 1.5;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        header {
+            padding: 36px 18px 12px;
+        }
+        .wrap { max-width: var(--maxw); margin: 0 auto; }
+        .topbar {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .logo {
+            width: 40px; height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(125,211,252,.9), rgba(167,139,250,.9));
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .logo:after {
+            content:"";
+            position:absolute; inset:-40%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.7), transparent 55%);
+            transform: rotate(25deg);
+            opacity: .65;
+        }
+        .titleblock h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: .2px;
+        }
+        .titleblock p {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .lang {
+            display: inline-flex;
+            gap: 6px;
+            padding: 6px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(255,255,255,.04);
+        }
+        .lang button {
+            appearance: none;
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            padding: 8px 12px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: .2px;
+            font-size: 13px;
+        }
+        .lang button[aria-pressed="true"] {
+            color: rgba(0,0,0,.86);
+            background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.95));
+        }
+
+        main { padding: 10px 18px 40px; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 14px;
+        }
+        @media (max-width: 920px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 18px;
+        }
+        .card h2 {
+            margin: 0 0 10px;
+            font-size: 16px;
+            letter-spacing: .2px;
+        }
+        .card p { margin: 10px 0; color: var(--muted); }
+        .card ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255,255,255,.04);
+            margin: 8px 0 0;
+            font-family: var(--mono);
+            font-size: 13px;
+            color: rgba(255,255,255,.84);
+            word-break: break-word;
+        }
+        .dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--ok);
+            box-shadow: 0 0 0 4px rgba(52,211,153,.18);
+            flex: 0 0 auto;
+        }
+        .muted2 { color: var(--muted2); }
+        .hr {
+            height: 1px;
+            background: var(--border);
+            margin: 14px 0;
+        }
+        details {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: rgba(255,255,255,.03);
+            padding: 12px 12px;
+            margin: 10px 0;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: rgba(255,255,255,.88);
+            list-style: none;
+        }
+        summary::-webkit-details-marker { display: none; }
+        .note {
+            border-left: 3px solid var(--accent);
+            padding: 10px 12px;
+            background: rgba(125,211,252,.08);
+            border-radius: 12px;
+            margin-top: 10px;
+            color: rgba(255,255,255,.86);
+        }
+        .small { font-size: 13px; color: var(--muted2); }
+        footer {
+            padding: 0 18px 28px;
+            color: var(--muted2);
+            font-size: 12px;
+        }
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .links { display: flex; gap: 14px; flex-wrap: wrap; }
+	</style>
+</head>
+
+<body>
+<header>
+	<div class="wrap">
+		<div class="topbar">
+			<div class="brand">
+				<div class="logo" aria-hidden="true"></div>
+				<div class="titleblock">
+					<h1 id="pageTitle">Phantom Support</h1>
+					<p id="pageSubtitle">Help, troubleshooting, and contact details</p>
+				</div>
+			</div>
+
+			<nav class="lang" aria-label="Language selector">
+				<button type="button" data-lang="en" aria-pressed="true">EN</button>
+				<button type="button" data-lang="ru" aria-pressed="false">RU</button>
+				<button type="button" data-lang="es" aria-pressed="false">ES</button>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main>
+	<div class="wrap grid">
+		<section class="card" aria-labelledby="supportHeading">
+			<h2 id="supportHeading">Contact Support</h2>
+			<p id="supportIntro">
+				If you have a question or need help, contact us. We typically respond within 1–2 business days.
+			</p>
+
+			<div class="badge" role="note" aria-label="Support email">
+				<span class="dot" aria-hidden="true"></span>
+				<span id="supportEmailLabel">Email:</span>
+				<a id="supportEmailLink" href="mailto:cypherplace@proton.me">cypherplace@proton.me</a>
+			</div>
+
+			<div class="note" id="supportNote">
+				Please include your device model, iOS version, and a short description of the issue.
+			</div>
+
+			<div class="hr"></div>
+
+			<h2 id="faqHeading">FAQ</h2>
+
+			<details>
+				<summary id="faq1q">Why aren’t my messages delivered immediately?</summary>
+				<div class="small" id="faq1a">
+					Message delivery depends on the recipient being available. If the other person is offline, the message will be delivered when both sides are online.
+				</div>
+			</details>
+
+			<details>
+				<summary id="faq2q">I received a notification but don’t see new messages.</summary>
+				<div class="small" id="faq2a">
+					Open the chat and wait a moment for the connection to establish. If you are on a restricted network, switching to another connection may help.
+				</div>
+			</details>
+
+			<details>
+				<summary id="faq3q">Calls connect but the audio is unstable.</summary>
+				<div class="small" id="faq3a">
+					Try switching Wi-Fi/LTE, disabling VPN, or reconnecting. Bluetooth headsets may also affect call quality depending on the audio route.
+				</div>
+			</details>
+
+			<details>
+				<summary id="faq4q">How do I reset the app?</summary>
+				<div class="small" id="faq4a">
+					You can remove the app and install it again. If you use an app lock, make sure you remember your device authentication method.
+				</div>
+			</details>
+		</section>
+
+		<aside class="card" aria-labelledby="infoHeading">
+			<h2 id="infoHeading">Information</h2>
+			<p id="infoBody">
+				Phantom is built to minimize unnecessary data collection and to keep communication limited to contacts you approve.
+			</p>
+
+			<div class="hr"></div>
+
+			<h2 id="statusHeading">Recommended details</h2>
+			<ul id="statusList">
+				<li>Device model (e.g., iPhone 14 Pro Max / iPad Pro)</li>
+				<li>iOS version</li>
+				<li>App version (e.g., 1.0.5) and build number</li>
+				<li>Network type (Wi-Fi/LTE) and region</li>
+				<li>Short steps to reproduce the issue</li>
+			</ul>
+
+			<div class="hr"></div>
+
+			<p class="muted2" id="privacyHint">
+				For privacy policy information, please use the Privacy Policy link below.
+			</p>
+		</aside>
+	</div>
+</main>
+
+<footer>
+	<div class="wrap">
+		<div id="footerLeft">© <span id="year"></span> Phantom</div>
+		<div class="links">
+			<a id="privacyLink" href="#" rel="noopener">Privacy Policy</a>
+			<a id="statusLink" href="#" rel="noopener">System Status</a>
+		</div>
+	</div>
+</footer>
+
+<script>
+    // ====== CONFIG: edit these values ======
+    const CONFIG = {
+        supportEmail: "cypherplace@proton.me",
+        privacyUrl: "https://oaklend.github.io/phantom-privacy/",
+        statusUrl: "" // optional; leave empty to hide
+    };
+
+    // ====== i18n strings ======
+    const I18N = {
+        en: {
+            pageTitle: "Phantom Support",
+            pageSubtitle: "Help, troubleshooting, and contact details",
+
+            supportHeading: "Contact Support",
+            supportIntro: "If you have a question or need help, contact us. We typically respond within 1–2 business days.",
+            supportEmailLabel: "Email:",
+            supportNote: "Please include your device model, iOS version, and a short description of the issue.",
+
+            faqHeading: "FAQ",
+            faq1q: "Why aren’t my messages delivered immediately?",
+            faq1a: "Message delivery depends on the recipient being available. If the other person is offline, the message will be delivered when both sides are online.",
+            faq2q: "I received a notification but don’t see new messages.",
+            faq2a: "Open the chat and wait a moment for the connection to establish. If you are on a restricted network, switching to another connection may help.",
+            faq3q: "Calls connect but the audio is unstable.",
+            faq3a: "Try switching Wi-Fi/LTE, disabling VPN, or reconnecting. Bluetooth headsets may also affect call quality depending on the audio route.",
+            faq4q: "How do I reset the app?",
+            faq4a: "You can remove the app and install it again. If you use an app lock, make sure you remember your device authentication method.",
+
+            infoHeading: "Information",
+            infoBody: "Phantom is built to minimize unnecessary data collection and to keep communication limited to contacts you approve.",
+
+            statusHeading: "Recommended details",
+            statusList: [
+                "Device model (e.g., iPhone 14 Pro Max / iPad Pro)",
+                "iOS version",
+                "App version (e.g., 1.0.5) and build number",
+                "Network type (Wi-Fi/LTE) and region",
+                "Short steps to reproduce the issue"
+            ],
+            privacyHint: "For privacy policy information, please use the Privacy Policy link below.",
+
+            footerPrivacy: "Privacy Policy",
+            footerStatus: "System Status"
+        },
+
+        ru: {
+            pageTitle: "Поддержка Phantom",
+            pageSubtitle: "Помощь, ответы на вопросы и контакты",
+
+            supportHeading: "Связаться с поддержкой",
+            supportIntro: "Если у вас есть вопрос или нужна помощь, напишите нам. Обычно мы отвечаем в течение 1–2 рабочих дней.",
+            supportEmailLabel: "Email:",
+            supportNote: "Пожалуйста, укажите модель устройства, версию iOS и коротко опишите проблему.",
+
+            faqHeading: "Вопросы и ответы",
+            faq1q: "Почему сообщения не доставляются мгновенно?",
+            faq1a: "Доставка зависит от доступности получателя. Если другой человек офлайн, сообщение будет доставлено, когда обе стороны будут онлайн.",
+            faq2q: "Пришло уведомление, но новых сообщений не видно.",
+            faq2a: "Откройте чат и подождите, пока установится соединение. Если сеть ограничена, попробуйте другое подключение.",
+            faq3q: "Звонок подключается, но звук нестабильный.",
+            faq3a: "Попробуйте переключить Wi-Fi/LTE, отключить VPN или переподключиться. Bluetooth-гарнитуры также могут влиять на качество звука в зависимости от маршрута аудио.",
+            faq4q: "Как сбросить приложение?",
+            faq4a: "Можно удалить приложение и установить снова. Если включена блокировка, убедитесь, что у вас есть доступ к системной аутентификации на устройстве.",
+
+            infoHeading: "Информация",
+            infoBody: "Phantom разработан так, чтобы минимизировать сбор данных и ограничить связь только теми контактами, которых вы одобрили.",
+
+            statusHeading: "Что указать в обращении",
+            statusList: [
+                "Модель устройства (например, iPhone 14 Pro Max / iPad Pro)",
+                "Версия iOS",
+                "Версия приложения (например, 1.0.5) и номер сборки",
+                "Тип сети (Wi-Fi/LTE) и регион",
+                "Короткие шаги для воспроизведения проблемы"
+            ],
+            privacyHint: "Информация о политике конфиденциальности доступна по ссылке ниже.",
+
+            footerPrivacy: "Политика конфиденциальности",
+            footerStatus: "Статус сервиса"
+        },
+
+        es: {
+            pageTitle: "Soporte de Phantom",
+            pageSubtitle: "Ayuda, solución de problemas y contacto",
+
+            supportHeading: "Contactar con soporte",
+            supportIntro: "Si tienes una pregunta o necesitas ayuda, contáctanos. Normalmente respondemos en 1–2 días laborables.",
+            supportEmailLabel: "Correo:",
+            supportNote: "Incluye el modelo de tu dispositivo, la versión de iOS y una breve descripción del problema.",
+
+            faqHeading: "Preguntas frecuentes",
+            faq1q: "¿Por qué mis mensajes no se entregan inmediatamente?",
+            faq1a: "La entrega depende de que el destinatario esté disponible. Si la otra persona está desconectada, el mensaje se entregará cuando ambos estén en línea.",
+            faq2q: "Recibí una notificación pero no veo mensajes nuevos.",
+            faq2a: "Abre el chat y espera un momento a que se establezca la conexión. Si estás en una red restringida, cambiar de conexión puede ayudar.",
+            faq3q: "La llamada conecta pero el audio es inestable.",
+            faq3a: "Prueba cambiar entre Wi-Fi/LTE, desactivar VPN o reconectar. Los auriculares Bluetooth también pueden afectar la calidad según la ruta de audio.",
+            faq4q: "¿Cómo restablezco la app?",
+            faq4a: "Puedes eliminar la app e instalarla de nuevo. Si usas bloqueo de la app, asegúrate de recordar tu método de autenticación del dispositivo.",
+
+            infoHeading: "Información",
+            infoBody: "Phantom está diseñado para minimizar la recopilación de datos y limitar la comunicación a los contactos que apruebas.",
+
+            statusHeading: "Detalles recomendados",
+            statusList: [
+                "Modelo del dispositivo (p. ej., iPhone 14 Pro Max / iPad Pro)",
+                "Versión de iOS",
+                "Versión de la app (p. ej., 1.0.5) y número de compilación",
+                "Tipo de red (Wi-Fi/LTE) y región",
+                "Pasos breves para reproducir el problema"
+            ],
+            privacyHint: "Para información sobre la política de privacidad, usa el enlace de Política de Privacidad abajo.",
+
+            footerPrivacy: "Política de privacidad",
+            footerStatus: "Estado del servicio"
+        }
+    };
+
+    // ====== helpers ======
+    const $ = (id) => document.getElementById(id);
+
+    function setLangButtons(active) {
+        document.querySelectorAll('.lang button').forEach(btn => {
+            btn.setAttribute('aria-pressed', btn.dataset.lang === active ? 'true' : 'false');
+        });
+    }
+
+    function applyText(lang) {
+        const t = I18N[lang] || I18N.en;
+
+        $("pageTitle").textContent = t.pageTitle;
+        $("pageSubtitle").textContent = t.pageSubtitle;
+
+        $("supportHeading").textContent = t.supportHeading;
+        $("supportIntro").textContent = t.supportIntro;
+        $("supportEmailLabel").textContent = t.supportEmailLabel;
+        $("supportNote").textContent = t.supportNote;
+
+        $("faqHeading").textContent = t.faqHeading;
+        $("faq1q").textContent = t.faq1q;
+        $("faq1a").textContent = t.faq1a;
+        $("faq2q").textContent = t.faq2q;
+        $("faq2a").textContent = t.faq2a;
+        $("faq3q").textContent = t.faq3q;
+        $("faq3a").textContent = t.faq3a;
+        $("faq4q").textContent = t.faq4q;
+        $("faq4a").textContent = t.faq4a;
+
+        $("infoHeading").textContent = t.infoHeading;
+        $("infoBody").textContent = t.infoBody;
+
+        $("statusHeading").textContent = t.statusHeading;
+        const ul = $("statusList");
+        ul.innerHTML = "";
+        (t.statusList || []).forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            ul.appendChild(li);
+        });
+
+        $("privacyHint").textContent = t.privacyHint;
+
+        $("privacyLink").textContent = t.footerPrivacy;
+        $("statusLink").textContent = t.footerStatus;
+
+        document.documentElement.lang = lang;
+        document.title = t.pageTitle;
+    }
+
+    function initConfig() {
+        $("supportEmailLink").textContent = CONFIG.supportEmail;
+        $("supportEmailLink").href = "mailto:" + CONFIG.supportEmail;
+
+        $("privacyLink").href = CONFIG.privacyUrl || "#";
+
+        if (CONFIG.statusUrl) {
+            $("statusLink").href = CONFIG.statusUrl;
+            $("statusLink").style.display = "inline";
+        } else {
+            $("statusLink").style.display = "none";
+        }
+
+        $("year").textContent = new Date().getFullYear();
+    }
+
+    function detectLang() {
+        const saved = localStorage.getItem("phantom_lang");
+        if (saved && I18N[saved]) return saved;
+
+        const nav = (navigator.language || "en").toLowerCase();
+        if (nav.startsWith("ru")) return "ru";
+        if (nav.startsWith("es")) return "es";
+        return "en";
+    }
+
+    function setLang(lang) {
+        const normalized = I18N[lang] ? lang : "en";
+        localStorage.setItem("phantom_lang", normalized);
+        setLangButtons(normalized);
+        applyText(normalized);
+    }
+
+    // ====== init ======
+    initConfig();
+    setLang(detectLang());
+
+    document.querySelectorAll(".lang button").forEach(btn => {
+        btn.addEventListener("click", () => setLang(btn.dataset.lang));
+    });
+</script>
+</body>
+</html>
